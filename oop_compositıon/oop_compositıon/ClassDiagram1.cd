@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="oop_compositıon.Adres">
+    <Position X="4.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQAAAEEAAABAAAhAAAAIQAAAI=</HashCode>
+      <FileName>Adres.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="oop_compositıon.Ogrenci">
+    <Position X="8.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIgAAAQAAAAACAAAAAAAAAQAAAAAAAIAAAACAACI=</HashCode>
+      <FileName>Ogrenci.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

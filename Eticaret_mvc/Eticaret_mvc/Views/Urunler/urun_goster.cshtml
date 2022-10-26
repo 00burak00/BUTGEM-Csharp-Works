@@ -1,0 +1,49 @@
+﻿@model IPagedList<Eticaret_mvc.Models.urunler>
+
+@{
+    ViewBag.Title = "urun_goster";
+}
+@using PagedList,
+@using PagedList.Mvc;
+<style>
+    .secici {
+        width: 150px;
+        height: 150px;
+        border-radius: 10px;
+        border: solid;
+        border-width: 1px;
+        border-color: gray;
+    }
+
+        .secici img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+</style>
+
+<p></p>
+<table class="table table-bordered">
+    <tr>
+        @foreach (var item in Model)
+        {
+
+            <td align="center">
+                <div class="secici">
+                    <img src="../../urun_resimleri/@Html.DisplayFor(modelItem => item.resim)" />
+                </div>
+                <br />Ürün Adı:@Html.DisplayFor(modelItem => item.urunadi)
+                <br />Fiyatı: @Html.DisplayFor(modelItem => item.fiyat)
+                <br />Açıklama:@Html.DisplayFor(modelItem => item.aciklama)
+                <br />@Html.ActionLink("Sepete Ekle", "sepete_ekle", "sepet",
+               new { urun_id = item.urunid }, new { @class = "btn btn-success" })
+
+            </td>
+        }
+    </tr>
+    <tr>
+        <td colspan="3">
+            @Html.PagedListPager(Model, sayfano => Url.Action("urun_goster", new { sayfano }))
+        </td>
+    </tr>
+</table>

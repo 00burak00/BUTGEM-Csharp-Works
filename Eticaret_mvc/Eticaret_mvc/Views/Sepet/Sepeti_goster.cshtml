@@ -1,0 +1,48 @@
+﻿@model Eticaret_mvc.Models.Sepet
+
+@{
+    Layout = null;
+}
+@Styles.Render("~/Content/css")
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Sepetimiz</title>
+</head>
+<body>
+    <table class="table table-bordered">
+        <tr>
+            <th>Resim</th>
+            <th>Adet</th>
+            <th>Ürün Adı</th>
+            <th>Fiyat</th>
+            <th>Toplam</th>
+        </tr>
+    
+    @foreach (var sepetteki_urun in Model.Sepetim) {
+    <tr>
+        <td>
+            <img src="../../urun_resimleri/@sepetteki_urun.urun.resim" width="80" height="80" />
+        </td>
+        <td>
+            @sepetteki_urun.adet
+        </td>
+        <td>
+            @sepetteki_urun.urun.urunadi
+        </td>
+        <td>
+            @sepetteki_urun.urun.fiyat
+        </td>
+        <td>
+            @(sepetteki_urun.urun.fiyat * sepetteki_urun.adet) 
+        </td>
+        <td>@Html.ActionLink("SİL","sepetten_sil",
+           new {urunid=sepetteki_urun.urun.urunid},new {@class="btn btn-danger" }) </td>
+    </tr>
+    }
+    <tr><td colspan="6" align="right">@Model.sepet_toplami() </td></tr>
+    </table>
+</body>
+</html>

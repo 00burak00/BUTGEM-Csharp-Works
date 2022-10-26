@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Eticaret_vtModelStoreContainer" CdmEntityContainer="Eticaret_vtEntities">
+    <EntitySetMapping Name="altkategoriler">
+      <EntityTypeMapping TypeName="Eticaret_vtModel.altkategoriler">
+        <MappingFragment StoreEntitySet="altkategoriler">
+          <ScalarProperty Name="altkateno" ColumnName="altkateno" />
+          <ScalarProperty Name="altkateadi" ColumnName="altkateadi" />
+          <ScalarProperty Name="anakateno" ColumnName="anakateno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="favoriler">
+      <EntityTypeMapping TypeName="Eticaret_vtModel.favoriler">
+        <MappingFragment StoreEntitySet="favoriler">
+          <ScalarProperty Name="favno" ColumnName="favno" />
+          <ScalarProperty Name="uyeid" ColumnName="uyeid" />
+          <ScalarProperty Name="urunid" ColumnName="urunid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="kategoriler">
+      <EntityTypeMapping TypeName="Eticaret_vtModel.kategoriler">
+        <MappingFragment StoreEntitySet="kategoriler">
+          <ScalarProperty Name="kateno" ColumnName="kateno" />
+          <ScalarProperty Name="kateadi" ColumnName="kateadi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="meslek">
+      <EntityTypeMapping TypeName="Eticaret_vtModel.meslek">
+        <MappingFragment StoreEntitySet="meslek">
+          <ScalarProperty Name="meslekid" ColumnName="meslekid" />
+          <ScalarProperty Name="meslekad" ColumnName="meslekad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sehirler">
+      <EntityTypeMapping TypeName="Eticaret_vtModel.sehirler">
+        <MappingFragment StoreEntitySet="sehirler">
+          <ScalarProperty Name="plaka" ColumnName="plaka" />
+          <ScalarProperty Name="sehiradi" ColumnName="sehiradi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="siparisler">
+      <EntityTypeMapping TypeName="Eticaret_vtModel.siparisler">
+        <MappingFragment StoreEntitySet="siparisler">
+          <ScalarProperty Name="uyeid" ColumnName="uyeid" />
+          <ScalarProperty Name="urunid" ColumnName="urunid" />
+          <ScalarProperty Name="adet" ColumnName="adet" />
+          <ScalarProperty Name="sip_tarihi" ColumnName="sip_tarihi" />
+          <ScalarProperty Name="sipno" ColumnName="sipno" />
+          <ScalarProperty Name="kayitno" ColumnName="kayitno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="urunler">
+      <EntityTypeMapping TypeName="Eticaret_vtModel.urunler">
+        <MappingFragment StoreEntitySet="urunler">
+          <ScalarProperty Name="urunid" ColumnName="urunid" />
+          <ScalarProperty Name="urunadi" ColumnName="urunadi" />
+          <ScalarProperty Name="fiyat" ColumnName="fiyat" />
+          <ScalarProperty Name="aciklama" ColumnName="aciklama" />
+          <ScalarProperty Name="resim" ColumnName="resim" />
+          <ScalarProperty Name="kateno" ColumnName="kateno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="uyeler">
+      <EntityTypeMapping TypeName="Eticaret_vtModel.uyeler">
+        <MappingFragment StoreEntitySet="uyeler">
+          <ScalarProperty Name="uyeid" ColumnName="uyeid" />
+          <ScalarProperty Name="kuladi" ColumnName="kuladi" />
+          <ScalarProperty Name="sifre" ColumnName="sifre" />
+          <ScalarProperty Name="adsoyad" ColumnName="adsoyad" />
+          <ScalarProperty Name="dogtar" ColumnName="dogtar" />
+          <ScalarProperty Name="cinsiyet" ColumnName="cinsiyet" />
+          <ScalarProperty Name="adres" ColumnName="adres" />
+          <ScalarProperty Name="plaka" ColumnName="plaka" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="meslekid" ColumnName="meslekid" />
+          <ScalarProperty Name="onay" ColumnName="onay" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="toplam_kazan">
+      <EntityTypeMapping TypeName="Eticaret_vtModel.toplam_kazan">
+        <MappingFragment StoreEntitySet="toplam_kazan">
+          <ScalarProperty Name="sipno" ColumnName="sipno" />
+          <ScalarProperty Name="toplamfiy" ColumnName="toplamfiy" />
+          <ScalarProperty Name="sip_tarihi" ColumnName="sip_tarihi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

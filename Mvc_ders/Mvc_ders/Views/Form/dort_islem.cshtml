@@ -1,0 +1,30 @@
+﻿
+@{
+    Layout = null;
+}
+@Styles.Render("~/Content/css")
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>dort_islem</title>
+</head>
+<body>
+    <div>
+        @ViewBag.sonuc
+        @using (Html.BeginForm())
+        {
+            <p>Sayi1:@Html.TextBox("sayi1","",new {@class="form-control",placeholder="sayi giriniz" }) </p>
+            <p>Sayi2:@Html.TextBox("sayi2","",new { @class = "form-control" })</p>
+            <p>
+                Toplam:@Html.RadioButton("islem", "1")
+                Çıkar:@Html.RadioButton("islem", "2")
+                Çarp:@Html.RadioButton("islem", "3")
+                Böl:@Html.RadioButton("islem", "4")
+            </p>
+            <input id="Submit1" type="submit" value="Gönder" />
+        }
+    </div>
+</body>
+</html>

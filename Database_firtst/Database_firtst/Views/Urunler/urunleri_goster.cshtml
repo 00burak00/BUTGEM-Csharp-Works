@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Database_firtst.Models.urunler> 
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>urunleri_goster</title>
+</head>
+<body>
+    <div> 
+        <table>
+            @foreach (var gelen_urun in Model)
+            {
+                <tr><td>@gelen_urun.urunadi</td>
+               <td>@Html.DisplayFor(Modelitem => gelen_urun.fiyat)</td>
+                <td>@Html.DisplayFor(Modelitem => gelen_urun.kategoriler.kateadi)</td></tr>
+            }
+
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4dad52446cda44c8ba9a30eb5cc518da" Name="Diagram1">
+        <EntityTypeShape EntityType="Eticaret_vtModel.altkategoriler" Width="1.5" PointX="3" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="Eticaret_vtModel.favoriler" Width="1.5" PointX="5.25" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="Eticaret_vtModel.kategoriler" Width="1.5" PointX="0.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="Eticaret_vtModel.meslek" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Eticaret_vtModel.sehirler" Width="1.5" PointX="1" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Eticaret_vtModel.siparisler" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Eticaret_vtModel.urunler" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Eticaret_vtModel.uyeler" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Eticaret_vtModel.toplam_kazan" Width="1.5" PointX="5.75" PointY="7" IsExpanded="true" />
+        <AssociationConnector Association="Eticaret_vtModel.FK_altkategoriler_kategoriler" ManuallyRouted="false" />
+        <AssociationConnector Association="Eticaret_vtModel.FK_favoriler_urunler" ManuallyRouted="false" />
+        <AssociationConnector Association="Eticaret_vtModel.FK_favoriler_uyeler" ManuallyRouted="false" />
+        <AssociationConnector Association="Eticaret_vtModel.FK_urunler_kategoriler" ManuallyRouted="false" />
+        <AssociationConnector Association="Eticaret_vtModel.FK_uyeler_meslek1" ManuallyRouted="false" />
+        <AssociationConnector Association="Eticaret_vtModel.FK_uyeler_sehirler1" ManuallyRouted="false" />
+        <AssociationConnector Association="Eticaret_vtModel.FK_siparisler_urunler" ManuallyRouted="false" />
+        <AssociationConnector Association="Eticaret_vtModel.FK_siparisler_uyeler" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,3 @@
+1:a4 texh mouse:11:1
+12:kingston 6 gb ddr3:150:2
+125:oem 6 gb ddr3:100:2

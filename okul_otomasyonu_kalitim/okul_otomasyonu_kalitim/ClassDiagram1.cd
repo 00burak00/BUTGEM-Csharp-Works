@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="okul_otomasyonu_kalitim.Kisi">
+    <Position X="3.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIgAAAAIAAAAAAAAgAAAAYAAAAEQAAAAE=</HashCode>
+      <FileName>Kisi.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="okul_otomasyonu_kalitim.Adres">
+    <Position X="11.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQAAAEEAAABAAABAAAAAQAAAI=</HashCode>
+      <FileName>Adres.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="okul_otomasyonu_kalitim.Ogrenci">
+    <Position X="6.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAABAAAAAAAAAAAAAAAAIAAAACAAAA=</HashCode>
+      <FileName>Ogrenci.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="okul_otomasyonu_kalitim.Personel">
+    <Position X="8.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>DAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAgAAAQ=</HashCode>
+      <FileName>Personel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

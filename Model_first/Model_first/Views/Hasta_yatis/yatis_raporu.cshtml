@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Model_first.Models.Hasta_yatis>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>yatis_raporu</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.yat_tarihi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cik_tarihi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.oda_no)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hastalar.Hasta_adi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Doktorlar.Doktor_adi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Departmanlar.Dept_adi)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.yat_tarihi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cik_tarihi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.oda_no)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hastalar.Hasta_adi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Doktorlar.Doktor_adi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Departmanlar.Dept_adi)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

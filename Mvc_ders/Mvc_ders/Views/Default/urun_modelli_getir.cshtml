@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Mvc_ders.Models.Urun>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>urun_modelli_getir</title>
+</head>
+<body>
+    <div> 
+        <table>
+            @foreach (var gelen_urun in Model)
+            {
+               @* <tr><td>@gelen_urun.Urun_adi </td></tr>
+                <tr><td>@gelen_urun.Fiyat </td></tr>
+                <tr><td>@gelen_urun.Kate_id  </td></tr>*@
+                <tr><td>@Html.DisplayFor(ModelItem => gelen_urun.Urun_adi)</td>
+                <td>@Html.DisplayFor(ModelItem => gelen_urun.Urun_id)</td>
+                <td>@Html.DisplayFor(ModelItem => gelen_urun.Fiyat)</td>
+                <td>@Html.DisplayFor(ModelItem => gelen_urun.Kate_id)</td></tr>
+                
+
+
+
+            }
+
+        </table>
+       
+
+    </div>
+</body>
+</html>

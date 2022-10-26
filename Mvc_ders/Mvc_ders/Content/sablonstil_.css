@@ -1,0 +1,47 @@
+.main{
+
+	margin:0px;
+	font-family:serif;
+	width=100%;
+	
+}
+.header
+{
+	border:1px solid gray;
+
+	height: 140px;
+}
+
+.contentmain
+{
+
+}
+.content
+{
+
+	border: 1px solid gray;
+float: left;
+}
+.sag_menu{
+	border: 1px solid gray;
+	float:left;
+}
+.sag_kullanici_giris{
+	border: 1px solid gray;
+	border-radius:5px;
+	width:240px;
+	clear:both;
+}
+.sag_menu_alt{
+	border: 1px solid gray;
+	height:auto;
+}
+
+.footer
+{
+	border: 1px solid gray;
+
+	font-size: 10px;
+	color: gray;
+	text-align: center;
+}

@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="siparis_dataset" targetNamespace="http://tempuri.org/siparis_dataset.xsd" xmlns:mstns="http://tempuri.org/siparis_dataset.xsd" xmlns="http://tempuri.org/siparis_dataset.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="Eticaret_vtConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="Eticaret_vtConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.Eticaret_vtConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="siparis_tablosuTableAdapter" GeneratorDataComponentClassName="siparis_tablosuTableAdapter" Name="siparis_tablosu" UserDataComponentName="siparis_tablosuTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="Eticaret_vtConnectionString (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT siparisler.sipno, uyeler.adsoyad, siparisler.sip_tarihi, urunler.urunadi, urunler.fiyat, siparisler.adet, urunler.resim
+FROM     uyeler INNER JOIN
+                  siparisler ON uyeler.uyeid = siparisler.uyeid INNER JOIN
+                  urunler ON siparisler.urunid = urunler.urunid</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="sipno" DataSetColumn="sipno" />
+              <Mapping SourceColumn="adsoyad" DataSetColumn="adsoyad" />
+              <Mapping SourceColumn="sip_tarihi" DataSetColumn="sip_tarihi" />
+              <Mapping SourceColumn="urunadi" DataSetColumn="urunadi" />
+              <Mapping SourceColumn="fiyat" DataSetColumn="fiyat" />
+              <Mapping SourceColumn="adet" DataSetColumn="adet" />
+              <Mapping SourceColumn="resim" DataSetColumn="resim" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="siparis_dataset" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="siparis_dataset" msprop:Generator_UserDSName="siparis_dataset">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="siparis_tablosu" msprop:Generator_TableClassName="siparis_tablosuDataTable" msprop:Generator_TableVarName="tablesiparis_tablosu" msprop:Generator_TablePropName="siparis_tablosu" msprop:Generator_RowDeletingName="siparis_tablosuRowDeleting" msprop:Generator_RowChangingName="siparis_tablosuRowChanging" msprop:Generator_RowEvHandlerName="siparis_tablosuRowChangeEventHandler" msprop:Generator_RowDeletedName="siparis_tablosuRowDeleted" msprop:Generator_UserTableName="siparis_tablosu" msprop:Generator_RowChangedName="siparis_tablosuRowChanged" msprop:Generator_RowEvArgName="siparis_tablosuRowChangeEvent" msprop:Generator_RowClassName="siparis_tablosuRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="sipno" msprop:Generator_ColumnVarNameInTable="columnsipno" msprop:Generator_ColumnPropNameInRow="sipno" msprop:Generator_ColumnPropNameInTable="sipnoColumn" msprop:Generator_UserColumnName="sipno" type="xs:int" />
+              <xs:element name="adsoyad" msprop:Generator_ColumnVarNameInTable="columnadsoyad" msprop:Generator_ColumnPropNameInRow="adsoyad" msprop:Generator_ColumnPropNameInTable="adsoyadColumn" msprop:Generator_UserColumnName="adsoyad">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="sip_tarihi" msprop:Generator_ColumnVarNameInTable="columnsip_tarihi" msprop:Generator_ColumnPropNameInRow="sip_tarihi" msprop:Generator_ColumnPropNameInTable="sip_tarihiColumn" msprop:Generator_UserColumnName="sip_tarihi" type="xs:dateTime" />
+              <xs:element name="urunadi" msprop:Generator_ColumnVarNameInTable="columnurunadi" msprop:Generator_ColumnPropNameInRow="urunadi" msprop:Generator_ColumnPropNameInTable="urunadiColumn" msprop:Generator_UserColumnName="urunadi">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fiyat" msprop:Generator_ColumnVarNameInTable="columnfiyat" msprop:Generator_ColumnPropNameInRow="fiyat" msprop:Generator_ColumnPropNameInTable="fiyatColumn" msprop:Generator_UserColumnName="fiyat" type="xs:double" />
+              <xs:element name="adet" msprop:Generator_ColumnVarNameInTable="columnadet" msprop:Generator_ColumnPropNameInRow="adet" msprop:Generator_ColumnPropNameInTable="adetColumn" msprop:Generator_UserColumnName="adet" type="xs:short" />
+              <xs:element name="resim" msprop:Generator_ColumnVarNameInTable="columnresim" msprop:Generator_ColumnPropNameInRow="resim" msprop:Generator_ColumnPropNameInTable="resimColumn" msprop:Generator_UserColumnName="resim" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rapor_resmi" msprop:Generator_ColumnVarNameInTable="columnrapor_resmi" msprop:Generator_ColumnPropNameInRow="rapor_resmi" msprop:Generator_ColumnPropNameInTable="rapor_resmiColumn" msprop:Generator_UserColumnName="rapor_resmi" type="xs:base64Binary" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

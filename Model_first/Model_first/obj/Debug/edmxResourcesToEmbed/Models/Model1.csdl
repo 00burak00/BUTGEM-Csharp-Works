@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Ogrenciler" EntityType="Model1.Ogrenciler" />
+    <EntitySet Name="Notlar" EntityType="Model1.Notlar" />
+    <AssociationSet Name="OgrencilerNotlar" Association="Model1.OgrencilerNotlar">
+      <End Role="Ogrenciler" EntitySet="Ogrenciler" />
+      <End Role="Notlar" EntitySet="Notlar" />
+    </AssociationSet>
+    <EntitySet Name="Dersler" EntityType="Model1.Dersler" />
+    <AssociationSet Name="DerslerNotlar" Association="Model1.DerslerNotlar">
+      <End Role="Dersler" EntitySet="Dersler" />
+      <End Role="Notlar" EntitySet="Notlar" />
+    </AssociationSet>
+    <EntitySet Name="sysdiagrams" EntityType="Model1.sysdiagrams" />
+  </EntityContainer>
+  <EntityType Name="Ogrenciler">
+    <Key>
+      <PropertyRef Name="ogno" />
+    </Key>
+    <Property Name="ogno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ad_soyad" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="dog_tar" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Notlar" Relationship="Model1.OgrencilerNotlar" FromRole="Ogrenciler" ToRole="Notlar" />
+  </EntityType>
+  <EntityType Name="Notlar">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="yaz1" Type="Byte" Nullable="false" />
+    <Property Name="yaz2" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="Ogrenciler" Relationship="Model1.OgrencilerNotlar" FromRole="Notlar" ToRole="Ogrenciler" />
+    <Property Name="ogno" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Dersler" Relationship="Model1.DerslerNotlar" FromRole="Notlar" ToRole="Dersler" />
+    <Property Name="Ders_no" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="OgrencilerNotlar">
+    <End Type="Model1.Ogrenciler" Role="Ogrenciler" Multiplicity="1" />
+    <End Type="Model1.Notlar" Role="Notlar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ogrenciler">
+        <PropertyRef Name="ogno" />
+      </Principal>
+      <Dependent Role="Notlar">
+        <PropertyRef Name="ogno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Dersler">
+    <Key>
+      <PropertyRef Name="Ders_no" />
+    </Key>
+    <Property Name="Ders_no" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ders_adi" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Notlar" Relationship="Model1.DerslerNotlar" FromRole="Dersler" ToRole="Notlar" />
+  </EntityType>
+  <Association Name="DerslerNotlar">
+    <End Type="Model1.Dersler" Role="Dersler" Multiplicity="1" />
+    <End Type="Model1.Notlar" Role="Notlar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dersler">
+        <PropertyRef Name="Ders_no" />
+      </Principal>
+      <Dependent Role="Notlar">
+        <PropertyRef Name="Ders_no" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+</Schema>

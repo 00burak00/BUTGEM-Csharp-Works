@@ -1,0 +1,1 @@
+browse-->c:\programfles\mysql\MySQL Connector Net 6.3.6\assemblies\4.0\mysql.data.dll

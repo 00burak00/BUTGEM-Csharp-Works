@@ -1,0 +1,25 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>urungoster</title>
+</head>
+<body>
+    <div>
+        <table class="table table-bordered">
+         @foreach(var urun in ViewBag.urunlerim)
+            {
+                <tr><td>@urun</td></tr>
+            }
+
+
+        </table>
+    </div>
+</body>
+</html>

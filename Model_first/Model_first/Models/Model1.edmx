@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Dersler">
+          <Key>
+            <PropertyRef Name="Ders_no" />
+          </Key>
+          <Property Name="Ders_no" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ders_adi" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Notlar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="yaz1" Type="tinyint" Nullable="false" />
+          <Property Name="yaz2" Type="tinyint" Nullable="false" />
+          <Property Name="ogno" Type="int" Nullable="false" />
+          <Property Name="Ders_no" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ogrenciler">
+          <Key>
+            <PropertyRef Name="ogno" />
+          </Key>
+          <Property Name="ogno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ad_soyad" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="dog_tar" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_DerslerNotlar">
+          <End Role="Dersler" Type="Self.Dersler" Multiplicity="1" />
+          <End Role="Notlar" Type="Self.Notlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dersler">
+              <PropertyRef Name="Ders_no" />
+            </Principal>
+            <Dependent Role="Notlar">
+              <PropertyRef Name="Ders_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OgrencilerNotlar">
+          <End Role="Ogrenciler" Type="Self.Ogrenciler" Multiplicity="1" />
+          <End Role="Notlar" Type="Self.Notlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ogrenciler">
+              <PropertyRef Name="ogno" />
+            </Principal>
+            <Dependent Role="Notlar">
+              <PropertyRef Name="ogno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Model1StoreContainer">
+          <EntitySet Name="Dersler" EntityType="Self.Dersler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Notlar" EntityType="Self.Notlar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ogrenciler" EntityType="Self.Ogrenciler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_DerslerNotlar" Association="Self.FK_DerslerNotlar">
+            <End Role="Dersler" EntitySet="Dersler" />
+            <End Role="Notlar" EntitySet="Notlar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OgrencilerNotlar" Association="Self.FK_OgrencilerNotlar">
+            <End Role="Ogrenciler" EntitySet="Ogrenciler" />
+            <End Role="Notlar" EntitySet="Notlar" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Ogrenciler" EntityType="Model1.Ogrenciler" />
+          <EntitySet Name="Notlar" EntityType="Model1.Notlar" />
+          <AssociationSet Name="OgrencilerNotlar" Association="Model1.OgrencilerNotlar">
+            <End Role="Ogrenciler" EntitySet="Ogrenciler" />
+            <End Role="Notlar" EntitySet="Notlar" />
+          </AssociationSet>
+          <EntitySet Name="Dersler" EntityType="Model1.Dersler" />
+          <AssociationSet Name="DerslerNotlar" Association="Model1.DerslerNotlar">
+            <End Role="Dersler" EntitySet="Dersler" />
+            <End Role="Notlar" EntitySet="Notlar" />
+          </AssociationSet>
+          <EntitySet Name="sysdiagrams" EntityType="Model1.sysdiagrams" />
+        </EntityContainer>
+        <EntityType Name="Ogrenciler">
+          <Key>
+            <PropertyRef Name="ogno" />
+          </Key>
+          <Property Name="ogno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ad_soyad" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="dog_tar" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Notlar" Relationship="Model1.OgrencilerNotlar" FromRole="Ogrenciler" ToRole="Notlar" />
+        </EntityType>
+        <EntityType Name="Notlar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="yaz1" Type="Byte" Nullable="false" />
+          <Property Name="yaz2" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="Ogrenciler" Relationship="Model1.OgrencilerNotlar" FromRole="Notlar" ToRole="Ogrenciler" />
+          <Property Name="ogno" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Dersler" Relationship="Model1.DerslerNotlar" FromRole="Notlar" ToRole="Dersler" />
+          <Property Name="Ders_no" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="OgrencilerNotlar">
+          <End Type="Model1.Ogrenciler" Role="Ogrenciler" Multiplicity="1" >
+          </End>
+          <End Type="Model1.Notlar" Role="Notlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ogrenciler">
+              <PropertyRef Name="ogno" />
+            </Principal>
+            <Dependent Role="Notlar">
+              <PropertyRef Name="ogno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Dersler">
+          <Key>
+            <PropertyRef Name="Ders_no" />
+          </Key>
+          <Property Name="Ders_no" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ders_adi" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Notlar" Relationship="Model1.DerslerNotlar" FromRole="Dersler" ToRole="Notlar" />
+        </EntityType>
+        <Association Name="DerslerNotlar">
+          <End Type="Model1.Dersler" Role="Dersler" Multiplicity="1" />
+          <End Type="Model1.Notlar" Role="Notlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dersler">
+              <PropertyRef Name="Ders_no" />
+            </Principal>
+            <Dependent Role="Notlar">
+              <PropertyRef Name="Ders_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Model1StoreContainer" CdmEntityContainer="Model1Container">
+    <EntitySetMapping Name="Ogrenciler">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Ogrenciler)">
+        <MappingFragment StoreEntitySet="Ogrenciler">
+          <ScalarProperty Name="ogno" ColumnName="ogno" />
+          <ScalarProperty Name="ad_soyad" ColumnName="ad_soyad" />
+          <ScalarProperty Name="dog_tar" ColumnName="dog_tar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notlar">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Notlar)">
+        <MappingFragment StoreEntitySet="Notlar">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="yaz1" ColumnName="yaz1" />
+          <ScalarProperty Name="yaz2" ColumnName="yaz2" />
+          <ScalarProperty Name="ogno" ColumnName="ogno" />
+          <ScalarProperty Name="Ders_no" ColumnName="Ders_no" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dersler">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Dersler)">
+        <MappingFragment StoreEntitySet="Dersler">
+          <ScalarProperty Name="Ders_no" ColumnName="Ders_no" />
+          <ScalarProperty Name="Ders_adi" ColumnName="Ders_adi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Model1.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

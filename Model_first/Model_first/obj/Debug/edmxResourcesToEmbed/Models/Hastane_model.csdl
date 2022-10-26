@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Hastane_model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="Hastane_modelContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Hastalar" EntityType="Hastane_model.Hastalar" />
+    <EntitySet Name="Hasta_yatis" EntityType="Hastane_model.Hasta_yatis" />
+    <EntitySet Name="Departman" EntityType="Hastane_model.Departmanlar" />
+    <EntitySet Name="Doktorlar" EntityType="Hastane_model.Doktorlar" />
+    <AssociationSet Name="HastalarHasta_yatis" Association="Hastane_model.HastalarHasta_yatis">
+      <End Role="Hastalar" EntitySet="Hastalar" />
+      <End Role="Hasta_yatis" EntitySet="Hasta_yatis" />
+    </AssociationSet>
+    <AssociationSet Name="DoktorlarHasta_yatis" Association="Hastane_model.DoktorlarHasta_yatis">
+      <End Role="Doktorlar" EntitySet="Doktorlar" />
+      <End Role="Hasta_yatis" EntitySet="Hasta_yatis" />
+    </AssociationSet>
+    <AssociationSet Name="DepartmanlarHasta_yatis" Association="Hastane_model.DepartmanlarHasta_yatis">
+      <End Role="Departmanlar" EntitySet="Departman" />
+      <End Role="Hasta_yatis" EntitySet="Hasta_yatis" />
+    </AssociationSet>
+    <AssociationSet Name="DepartmanlarDoktorlar" Association="Hastane_model.DepartmanlarDoktorlar">
+      <End Role="Departmanlar" EntitySet="Departman" />
+      <End Role="Doktorlar" EntitySet="Doktorlar" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Hastalar">
+    <Key>
+      <PropertyRef Name="hasta_no" />
+    </Key>
+    <Property Name="hasta_no" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Hasta_adi" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Hasta_dogtar" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Hasta_adres" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Hasta_yatis" Relationship="Hastane_model.HastalarHasta_yatis" FromRole="Hastalar" ToRole="Hasta_yatis" />
+  </EntityType>
+  <EntityType Name="Hasta_yatis">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="yat_tarihi" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="cik_tarihi" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="oda_no" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="Hastalar" Relationship="Hastane_model.HastalarHasta_yatis" FromRole="Hasta_yatis" ToRole="Hastalar" />
+    <Property Name="hasta_no" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Doktorlar" Relationship="Hastane_model.DoktorlarHasta_yatis" FromRole="Hasta_yatis" ToRole="Doktorlar" />
+    <Property Name="Doktor_no" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Departmanlar" Relationship="Hastane_model.DepartmanlarHasta_yatis" FromRole="Hasta_yatis" ToRole="Departmanlar" />
+    <Property Name="Dept_no" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Departmanlar">
+    <Key>
+      <PropertyRef Name="Dept_no" />
+    </Key>
+    <Property Name="Dept_no" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Dept_adi" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Hasta_yatis" Relationship="Hastane_model.DepartmanlarHasta_yatis" FromRole="Departmanlar" ToRole="Hasta_yatis" />
+    <NavigationProperty Name="Doktorlar" Relationship="Hastane_model.DepartmanlarDoktorlar" FromRole="Departmanlar" ToRole="Doktorlar" />
+  </EntityType>
+  <EntityType Name="Doktorlar">
+    <Key>
+      <PropertyRef Name="Doktor_no" />
+    </Key>
+    <Property Name="Doktor_no" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Doktor_adi" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Hasta_yatis" Relationship="Hastane_model.DoktorlarHasta_yatis" FromRole="Doktorlar" ToRole="Hasta_yatis" />
+    <NavigationProperty Name="Departmanlar" Relationship="Hastane_model.DepartmanlarDoktorlar" FromRole="Doktorlar" ToRole="Departmanlar" />
+    <Property Name="Dept_no" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="HastalarHasta_yatis">
+    <End Type="Hastane_model.Hastalar" Role="Hastalar" Multiplicity="1" />
+    <End Type="Hastane_model.Hasta_yatis" Role="Hasta_yatis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hastalar">
+        <PropertyRef Name="hasta_no" />
+      </Principal>
+      <Dependent Role="Hasta_yatis">
+        <PropertyRef Name="hasta_no" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DoktorlarHasta_yatis">
+    <End Type="Hastane_model.Doktorlar" Role="Doktorlar" Multiplicity="1" />
+    <End Type="Hastane_model.Hasta_yatis" Role="Hasta_yatis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Doktorlar">
+        <PropertyRef Name="Doktor_no" />
+      </Principal>
+      <Dependent Role="Hasta_yatis">
+        <PropertyRef Name="Doktor_no" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DepartmanlarHasta_yatis">
+    <End Type="Hastane_model.Departmanlar" Role="Departmanlar" Multiplicity="1" />
+    <End Type="Hastane_model.Hasta_yatis" Role="Hasta_yatis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departmanlar">
+        <PropertyRef Name="Dept_no" />
+      </Principal>
+      <Dependent Role="Hasta_yatis">
+        <PropertyRef Name="Dept_no" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DepartmanlarDoktorlar">
+    <End Type="Hastane_model.Departmanlar" Role="Departmanlar" Multiplicity="1" />
+    <End Type="Hastane_model.Doktorlar" Role="Doktorlar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departmanlar">
+        <PropertyRef Name="Dept_no" />
+      </Principal>
+      <Dependent Role="Doktorlar">
+        <PropertyRef Name="Dept_no" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

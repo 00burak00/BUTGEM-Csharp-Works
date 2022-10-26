@@ -1,0 +1,100 @@
+﻿@model Eticaret_mvc.Models.urunler
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Urun_kaydet</title>
+</head>
+<body>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Styles.Render("~/Content/css")
+
+    @using (Html.BeginForm("urun_kaydet", "urunler", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>@ViewBag.mesaj</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.urunadi, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.urunadi, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.urunadi, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.fiyat, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.fiyat, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.fiyat, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.aciklama, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.aciklama, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.aciklama, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.resim, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextBox("file", "", new { Type = "file" })
+                    <div id="resim_goster" style="width:350px;height:150px"></div>
+                    @*@Html.EditorFor(model => model.resim, new { htmlAttributes = new { @class = "form-control" } })*@
+                    @Html.ValidationMessageFor(model => model.resim, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.kateno, "kateno", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("kateno", null, "Seçiniz", htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.kateno, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Kaydet" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+    <script language="JavaScript">
+        const images = document.getElementById("file"),
+            preview = document.getElementById("resim_goster");
+
+        images.addEventListener("change", function () {
+            preview.innerHTML = "";
+            [...this.files].map((file) => {
+                const reader = new FileReader();
+                reader.addEventListener("load", function () {
+                    const image = new Image();
+                    image.height = 100;
+                    image.title = file.name;
+                    image.src = this.result;
+                    preview.appendChild(image);
+                });
+                reader.readAsDataURL(file);
+            });
+        });
+    </script>
+</body>
+</html>

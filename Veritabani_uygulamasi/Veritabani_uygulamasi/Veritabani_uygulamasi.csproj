@@ -1,0 +1,467 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{68A6D03C-DBCB-443D-AD3A-871D51352E90}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Veritabani_uygulamasi</RootNamespace>
+    <AssemblyName>Veritabani_uygulamasi</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44330</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=3.5.40412.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\eskie\eskidisk\d_diski\ders_notları\butgem\ajaxvideo\AjaxControlToolkit.Binary.NET35\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Web, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MySql.Data, Version=6.3.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\Eticaret_vt.mdf" />
+    <Content Include="App_Data\Eticaret_vt_log.ldf">
+      <DependentUpon>Eticaret_vt.mdf</DependentUpon>
+    </Content>
+    <Content Include="css\bootstrap-grid.css" />
+    <Content Include="css\bootstrap-grid.min.css" />
+    <Content Include="css\bootstrap-grid.rtl.css" />
+    <Content Include="css\bootstrap-grid.rtl.min.css" />
+    <Content Include="css\bootstrap-reboot.css" />
+    <Content Include="css\bootstrap-reboot.min.css" />
+    <Content Include="css\bootstrap-reboot.rtl.css" />
+    <Content Include="css\bootstrap-reboot.rtl.min.css" />
+    <Content Include="css\bootstrap-utilities.css" />
+    <Content Include="css\bootstrap-utilities.min.css" />
+    <Content Include="css\bootstrap-utilities.rtl.css" />
+    <Content Include="css\bootstrap-utilities.rtl.min.css" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\bootstrap.rtl.css" />
+    <Content Include="css\bootstrap.rtl.min.css" />
+    <Content Include="default.aspx" />
+    <Content Include="greybox\AJS.js" />
+    <Content Include="greybox\AJS_fx.js" />
+    <Content Include="greybox\gb_scripts.js" />
+    <Content Include="greybox\gb_styles.css" />
+    <Content Include="greybox\g_close.gif" />
+    <Content Include="greybox\header_bg.gif" />
+    <Content Include="greybox\indicator.gif" />
+    <Content Include="greybox\loader_frame.html" />
+    <Content Include="greybox\next.gif" />
+    <Content Include="greybox\prev.gif" />
+    <Content Include="greybox\w_close.gif" />
+    <Content Include="img\satin_al.jpg" />
+    <Content Include="img\sepet.png" />
+    <Content Include="img\sepeti_yenile.jpg" />
+    <Content Include="img\th259JIQAI.jpg" />
+    <Content Include="js\bootstrap.bundle.js" />
+    <Content Include="js\bootstrap.bundle.min.js" />
+    <Content Include="js\bootstrap.esm.js" />
+    <Content Include="js\bootstrap.esm.min.js" />
+    <Content Include="js\bootstrap.js" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="Kategori_islemleri.aspx" />
+    <Content Include="menu_olustur.aspx" />
+    <Content Include="mysql.aspx" />
+    <Content Include="sepet.aspx" />
+    <Content Include="Siparis_raporum.aspx" />
+    <Content Include="urunkayit.aspx" />
+    <Content Include="Urunler.aspx" />
+    <Content Include="urun_resimleri\1683ya1.jpg" />
+    <Content Include="urun_resimleri\19Mayis.jpg" />
+    <Content Include="urun_resimleri\57.jpg" />
+    <Content Include="urun_resimleri\59.jpg" />
+    <Content Include="urun_resimleri\64.jpg" />
+    <Content Include="urun_resimleri\65.jpg" />
+    <Content Include="urun_resimleri\66.jpg" />
+    <Content Include="urun_resimleri\67.jpg" />
+    <Content Include="urun_resimleri\68.jpg" />
+    <Content Include="urun_resimleri\69.jpg" />
+    <Content Include="urun_resimleri\7.jpg" />
+    <Content Include="urun_resimleri\75.jpg" />
+    <Content Include="urun_resimleri\a.jpg" />
+    <Content Include="urun_resimleri\adsız.JPG" />
+    <Content Include="urun_resimleri\Afis-tasarimi-lovemarks_5.png" />
+    <Content Include="urun_resimleri\ali.jpg" />
+    <Content Include="urun_resimleri\allem13.png" />
+    <Content Include="urun_resimleri\banner.gif" />
+    <Content Include="urun_resimleri\bmvv.jpg" />
+    <Content Include="urun_resimleri\CALIS MASA DÜZ.jpg" />
+    <Content Include="urun_resimleri\CALIS MASA PA.jpg" />
+    <Content Include="urun_resimleri\Chrysanthemum.jpg" />
+    <Content Include="urun_resimleri\Desert.jpg" />
+    <Content Include="urun_resimleri\DosyaDolabiKucuk.jpg" />
+    <Content Include="urun_resimleri\GerdirmeliRafSistemi.jpg" />
+    <Content Include="urun_resimleri\hd1.jpg" />
+    <Content Include="urun_resimleri\hd2.jpg" />
+    <Content Include="urun_resimleri\ico_digicam.gif" />
+    <Content Include="urun_resimleri\ico_hth1.gif" />
+    <Content Include="urun_resimleri\Jellyfish.jpg" />
+    <Content Include="urun_resimleri\Koala.jpg" />
+    <Content Include="urun_resimleri\Lighthouse.jpg" />
+    <Content Include="urun_resimleri\Malz Dolabı.jpg" />
+    <Content Include="urun_resimleri\n.jpg" />
+    <Content Include="urun_resimleri\Penguins.jpg" />
+    <Content Include="urun_resimleri\PersonelDolabi1Gozlu.jpg" />
+    <Content Include="urun_resimleri\PersonelDolabiDetay.jpg" />
+    <Content Include="urun_resimleri\PersonelDolap2Gozlu.jpg" />
+    <Content Include="urun_resimleri\PersonelDolap4Gozlu.jpg" />
+    <Content Include="urun_resimleri\sat2.jpg" />
+    <Content Include="urun_resimleri\Tek Tak Arb1.jpg" />
+    <Content Include="urun_resimleri\Tek Tak Arb2.jpg" />
+    <Content Include="uye_duzenle.aspx" />
+    <Content Include="uye_kayit.aspx" />
+    <Content Include="Sehir_mvc.aspx" />
+    <Content Include="Uye_goster.aspx" />
+    <Content Include="uye_raporum.aspx" />
+    <Content Include="uye_sil.aspx" />
+    <Content Include="Web.config" />
+    <Content Include="WebForm1.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Connection_yapici.cs" />
+    <Compile Include="DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Kategori.cs" />
+    <Compile Include="Kategoriler_dao.cs" />
+    <Compile Include="Kategori_islemleri.aspx.cs">
+      <DependentUpon>Kategori_islemleri.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Kategori_islemleri.aspx.designer.cs">
+      <DependentUpon>Kategori_islemleri.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="menu_olustur.aspx.cs">
+      <DependentUpon>menu_olustur.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="menu_olustur.aspx.designer.cs">
+      <DependentUpon>menu_olustur.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Meslek.cs" />
+    <Compile Include="Meslek_dao.cs" />
+    <Compile Include="mysql.aspx.cs">
+      <DependentUpon>mysql.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mysql.aspx.designer.cs">
+      <DependentUpon>mysql.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sepet.aspx.cs">
+      <DependentUpon>sepet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sepet.aspx.designer.cs">
+      <DependentUpon>sepet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sepetlik.cs" />
+    <Compile Include="Siparis_dao.cs" />
+    <Compile Include="siparis_dataset.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>siparis_dataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="siparis_raporu.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>siparis_raporu.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Siparis_raporum.aspx.cs">
+      <DependentUpon>Siparis_raporum.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Siparis_raporum.aspx.designer.cs">
+      <DependentUpon>Siparis_raporum.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Urun.cs" />
+    <Compile Include="Urundao.cs" />
+    <Compile Include="urunkayit.aspx.cs">
+      <DependentUpon>urunkayit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="urunkayit.aspx.designer.cs">
+      <DependentUpon>urunkayit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Urunler.aspx.cs">
+      <DependentUpon>Urunler.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Urunler.aspx.designer.cs">
+      <DependentUpon>Urunler.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="uyeler.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>uyeler.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="uyeler_dataseti.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>uyeler_dataseti.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="uye_duzenle.aspx.cs">
+      <DependentUpon>uye_duzenle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="uye_duzenle.aspx.designer.cs">
+      <DependentUpon>uye_duzenle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="uye_kayit.aspx.cs">
+      <DependentUpon>uye_kayit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="uye_kayit.aspx.designer.cs">
+      <DependentUpon>uye_kayit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sehir.cs" />
+    <Compile Include="Sehirler_dao.cs" />
+    <Compile Include="Sehir_mvc.aspx.cs">
+      <DependentUpon>Sehir_mvc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sehir_mvc.aspx.designer.cs">
+      <DependentUpon>Sehir_mvc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Uye.cs" />
+    <Compile Include="Uyeler_dao.cs" />
+    <Compile Include="Uye_goster.aspx.cs">
+      <DependentUpon>Uye_goster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Uye_goster.aspx.designer.cs">
+      <DependentUpon>Uye_goster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="uye_raporum.aspx.cs">
+      <DependentUpon>uye_raporum.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="uye_raporum.aspx.designer.cs">
+      <DependentUpon>uye_raporum.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="uye_sil.aspx.cs">
+      <DependentUpon>uye_sil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="uye_sil.aspx.designer.cs">
+      <DependentUpon>uye_sil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm2.aspx.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm2.aspx.designer.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm3.aspx.cs">
+      <DependentUpon>WebForm3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm3.aspx.designer.cs">
+      <DependentUpon>WebForm3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ziyaretci.Master.cs">
+      <DependentUpon>Ziyaretci.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ziyaretci.Master.designer.cs">
+      <DependentUpon>Ziyaretci.Master</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\bootstrap-grid.css.map" />
+    <Content Include="css\bootstrap-grid.min.css.map" />
+    <Content Include="css\bootstrap-grid.rtl.css.map" />
+    <Content Include="css\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="css\bootstrap-reboot.css.map" />
+    <Content Include="css\bootstrap-reboot.min.css.map" />
+    <Content Include="css\bootstrap-reboot.rtl.css.map" />
+    <Content Include="css\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="css\bootstrap-utilities.css.map" />
+    <Content Include="css\bootstrap-utilities.min.css.map" />
+    <Content Include="css\bootstrap-utilities.rtl.css.map" />
+    <Content Include="css\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="css\bootstrap.css.map" />
+    <Content Include="css\bootstrap.min.css.map" />
+    <Content Include="css\bootstrap.rtl.css.map" />
+    <Content Include="css\bootstrap.rtl.min.css.map" />
+    <Content Include="js\bootstrap.bundle.js.map" />
+    <Content Include="js\bootstrap.bundle.min.js.map" />
+    <Content Include="js\bootstrap.esm.js.map" />
+    <Content Include="js\bootstrap.esm.min.js.map" />
+    <Content Include="js\bootstrap.js.map" />
+    <Content Include="js\bootstrap.min.js.map" />
+    <Content Include="greybox\Thumbs.db" />
+    <Content Include="DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Content>
+    <None Include="DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Content>
+    <None Include="packages.config" />
+    <Content Include="uyeler_dataseti.xsc">
+      <DependentUpon>uyeler_dataseti.xsd</DependentUpon>
+    </Content>
+    <Content Include="siparis_dataset.xsc">
+      <DependentUpon>siparis_dataset.xsd</DependentUpon>
+    </Content>
+    <None Include="siparis_dataset.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>siparis_dataset.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="siparis_dataset.xss">
+      <DependentUpon>siparis_dataset.xsd</DependentUpon>
+    </Content>
+    <None Include="uyeler_dataseti.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>uyeler_dataseti.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="uyeler_dataseti.xss">
+      <DependentUpon>uyeler_dataseti.xsd</DependentUpon>
+    </Content>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <Content Include="WebForm2.aspx" />
+    <Content Include="WebForm3.aspx" />
+    <Content Include="Ziyaretci.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="siparis_raporu.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>siparis_raporu.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uyeler.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>uyeler.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49737</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44330/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

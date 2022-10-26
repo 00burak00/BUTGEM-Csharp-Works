@@ -1,0 +1,23 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>deneme</title>
+</head>
+<body>
+    <div> 
+        @using (Html.BeginForm())
+            {
+        <p>@Html.DropDownList("isim",(List<SelectListItem>)ViewBag.degerler)</p>
+
+
+            }
+    </div>
+</body>
+</html>

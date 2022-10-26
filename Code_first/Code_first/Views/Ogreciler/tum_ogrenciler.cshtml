@@ -1,0 +1,95 @@
+﻿@model IEnumerable<Code_first.Models.Ogrenci>
+
+@{
+    Layout = null;
+}
+@Styles.Render("~/Content/css")
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    @Scripts.Render("~/bundles/jquery")
+
+
+    <meta name="viewport" content="width=device-width" />
+    <title>tum_ogrenciler</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Yeni Öğrenci Kaydet", "Create", "", new { @class = "btn btn-primary" })
+    </p>
+    <table id="Tablom" class="table table-bordered btn ">
+        <tr>
+            <th>
+               
+            </th> 
+            <th>
+                Ad Soyad
+            </th>
+            <th>
+                Tc Kimlik
+            </th>
+            <th>
+                Doğum Tarihi
+            </th>
+            <th>
+                Adres
+            </th>
+            <th></th>
+        </tr>
+       
+            @using (Html.BeginForm())
+            {
+                foreach (var item in Model)
+                {
+                <tr>
+                    <td>
+
+                    <input type="checkbox" name="idler" value="@item.ogno" />
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ad_soyad)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tc_kimlik)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.dog_tar)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.adres)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Güncelle", "Edit", new { id = item.ogno }, new { @class = "btn btn-warning" }) |
+
+                        @Html.ActionLink("Sil", "ogrenci_sil", new { id = item.ogno }, new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+
+            }@*for iç*@
+            <tr><input id="Submit1" type="submit" value="Seçilienleri Sil" /></tr>
+            <tr><input type="checkbox" id="tumunusec" >Tümünü Seç</tr>
+        }@*begin form*@
+       
+        </table>
+        <script type="text/javascript">
+            $('#tumunusec').click(function () {
+                var chk = $(this).is(':checked');
+              
+                $('input[type=checkbox]', "#Tablom").each(function () {
+                    if (chk) {
+                        $(this).attr('checked', 'checked');
+                    }
+                    else {
+                        $(this).removeAttr('checked');
+                    }
+                });
+
+            });
+
+        </script>
+
+    </body>
+</html>

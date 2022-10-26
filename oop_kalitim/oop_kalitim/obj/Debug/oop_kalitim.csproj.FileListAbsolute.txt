@@ -1,0 +1,2 @@
+E:\yazilimpaylas\oop_kalitim\oop_kalitim\obj\Debug\oop_kalitim.csproj.AssemblyReference.cache
+E:\yazilimpaylas\oop_kalitim\oop_kalitim\obj\Debug\oop_kalitim.csproj.CoreCompileInputs.cache

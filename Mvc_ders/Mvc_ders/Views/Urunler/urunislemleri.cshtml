@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Mvc_ders.Models.Urun>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+@Styles.Render("~/Content/css")
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>urunislemleri</title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm())
+        {
+            <table class="table table-bordered">
+                <tr>
+                    <td>Ürün No:</td>
+                    <td>@Html.TextBox("urun_id", "", new { @class = "form-control" }) </td>
+                </tr>
+                <tr>
+                    <td>Ürün Adı:</td>
+                    <td>@Html.TextBox("urun_adi", "", new { @class = "form-control" }) </td>
+                </tr>
+                <tr>
+                    <td>Fiyatı:</td>
+                    <td>@Html.TextBox("fiyat", "", new { @class = "form-control" }) </td>
+                </tr>
+                <tr>
+                    <td>Kategori Seçiniz:</td>
+                    <td>
+                        Anakart:@Html.RadioButton("kate_id", "1", new { @class = "form-control" })
+                        Ram:@Html.RadioButton("kate_id", "2", new { @class = "form-control" })
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input name="islem" type="submit" value="Kaydet" />
+                        <input name="islem" type="submit" value="Sil" />
+                        <input name="islem" type="submit" value="Ara" />
+                        <input name="islem" type="submit" value="Güncelle" />
+                        <input name="islem" type="submit" value="Tümü" />
+                    </td>
+                </tr>
+            </table>
+        }
+
+
+        <table class="table table-bordered">
+            <tr>
+                <th>Ürün no</th>
+                <th>Ürün Adı</th>
+                <th>Fiyatı</th>
+                <th>kategorisi</th>
+            </tr>
+            @foreach (var gelen_urun in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(Modelitem => gelen_urun.Urun_id)</td>
+                    <td>@Html.DisplayFor(Modelitem => gelen_urun.Urun_adi)</td>
+                    <td>@Html.DisplayFor(Modelitem => gelen_urun.Fiyat)</td>
+                    <td>@Html.DisplayFor(Modelitem => gelen_urun.Kate_id)</td>
+                </tr>
+
+            }
+
+        </table>
+    </div>
+</body>
+</html>

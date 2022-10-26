@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title -E-ticaret Sitemiz</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @using Eticaret_mvc.Models
+</head>
+<body>
+    <table class="tablo">
+        <tr>
+            <td colspan="3" class="ustmenu">
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page"
+                           href="@Url.Action("index", "Home")">Ana Sayfa</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Kategoriler</a>
+                        <ul class="dropdown-menu">
+                            @{Html.RenderAction("kategori_doldur", "Home"); }
+
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        @if (Session["uyem"] == null)
+                        {
+                            <a class="nav-link" href="@Url.Action("uye_kayit", "uyeler")">Üye Ol</a>
+                        }
+                        else
+                        {
+                            <a class="nav-link" href="@Url.Action("uye_edit", "uyeler",
+                              new {uyeid=((uyeler)Session["uyem"]).uyeid })">Üye Bilgileri Düzenle</a>
+
+                        }
+                    </li>
+                    @if (Session["uyem"] != null)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("guv_cikis", "home")">Güvenli Çıkış</a>
+                        </li>
+                    }
+                    <li class="nav-item">
+                        <a class="nav-link disabled">İletişim</a>
+                    </li>
+                </ul>
+
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="icerik_td">
+                <div class="icerik">@RenderBody()</div>
+            </td>
+            <td width="25%">
+                <div class="div1">
+                    @{ 
+                        var kul_kontrol = "";
+                        string ad_soyad = "Misafir";
+                        if (Session["uyem"] != null)
+                        {
+                            ad_soyad = ((uyeler)Session["uyem"]).adsoyad;
+                        }
+                        if (Session["kulkontrol"] != null)
+                        { kul_kontrol = Session["kulkontrol"].ToString(); }
+
+                    }
+                    @Html.Label(ad_soyad) 
+                    @Html.Label(kul_kontrol) 
+
+                   @using (Html.BeginForm("login_giris","Home"))
+                   {
+                        <div class="input-container">
+                            <i class="fa fa-envelope icon"></i>
+                            @*<input type="email" placeholder="Email" name="email" class="input-field" required>*@
+                            @Html.TextBox("kuladi","",new {@class= "input-field",placeholder="Kullanıcı Adı", required="true" }) 
+                        </div>
+                        <div class="input-container">
+                            <i class="fa fa-key icon"></i>
+                            @*<input type="password" placeholder="Password" name="password" class="input-field" required>*@
+                            @Html.TextBox("sifre","", new { @class = "input-field", placeholder = "Şifre", required="true" })
+                        </div>
+                        <div><center><input type="submit" class="bttn" value="Giriş"></center></div>
+                   }
+
+
+
+
+
+
+
+                </div>
+            </td>
+
+        </tr>
+        <tr>
+            <td colspan="3" class="altbilgi_td"><div class="div2">Alt bilgi</div></td>
+        </tr>
+    </table>
+
+
+
+
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/bootstrap.bundle.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

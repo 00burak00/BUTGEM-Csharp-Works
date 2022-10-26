@@ -1,0 +1,10 @@
+﻿@model IEnumerable<Eticaret_mvc.Models.kategoriler>
+@{
+    Layout = null;
+}
+@foreach (var kategorim in Model)
+{
+<li>@Html.ActionLink(kategorim.kateadi,"urun_goster","urunler",
+    new {id=kategorim.kateno },new {@class= "dropdown-item" }) </li>
+}
+

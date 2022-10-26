@@ -1,0 +1,24 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>viewbag_ornek</title>
+</head>
+<body>
+    <div> 
+        @{ List<int> sayilarim = ViewBag.sayilar;
+          foreach (var i in sayilarim)
+            {
+             <p>@i</p>
+
+            }
+        }
+    </div>
+</body>
+</html>
